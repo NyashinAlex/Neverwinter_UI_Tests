@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -19,6 +20,7 @@ public class RegistrationPage {
             checkboxAgree = $("[for=\"agreed\"]"),
             buttonJoin = $(".button-wrap.uses-recaptcha");
 
+    @Step("Registration PC")
     public RegistrationPage registrationPC(String email, String nickname, String password) {
         platformPC.click();
         fieldEmail.setValue(email);
@@ -31,16 +33,19 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Click platform PS")
     public RegistrationPage registrationPS() {
         platformPS.click();
         return this;
     }
 
+    @Step("Click platform Xbox")
     public RegistrationPage registrationXbox() {
         platformXbox.click();
         return this;
     }
 
+    @Step("Click platform Switch")
     public RegistrationPage registrationSwitch() {
         platformSwitch.click();
         return this;
