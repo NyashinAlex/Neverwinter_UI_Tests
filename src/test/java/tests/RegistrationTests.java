@@ -9,16 +9,10 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
-public class RegistrationTests extends BaseTest{
+public class RegistrationTests extends BaseTest {
 
     MainPage mainPage = new MainPage();
     RegistrationPage registrationPage = new RegistrationPage();
-
-    @Test
-    @DisplayName("Open warf")
-    void open() {
-
-    }
 
     @Test
     @DisplayName("Success registration from PС")
