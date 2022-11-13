@@ -15,6 +15,12 @@ public class RegistrationTests extends BaseTest{
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
+    @DisplayName("Open warf")
+    void open() {
+
+    }
+
+    @Test
     @DisplayName("Success registration from PС")
     void successRegistrationPC() {
         mainPage.openRegistrationForm();
