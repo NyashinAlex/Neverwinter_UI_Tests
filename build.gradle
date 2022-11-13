@@ -64,4 +64,9 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+
+    test {
+        useJUnitPlatform()
+        systemProperties(System.getProperties())
+    }
 }
