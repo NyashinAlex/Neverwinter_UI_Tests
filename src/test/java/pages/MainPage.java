@@ -15,13 +15,13 @@ public class MainPage {
 
     @Step("Open Authorization Form")
     public MainPage openAuthorizationForm() {
-        open("/forms");
+        open("/ru");
         buttonEnter.click();
         return this;
     }
     @Step("Open Registration Form")
     public MainPage openRegistrationForm() {
-        open("/forms");
+        open("/ru");
         buttonPlayFreeNow.click();
         return this;
     }
