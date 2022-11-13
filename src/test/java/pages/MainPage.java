@@ -4,14 +4,13 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
 
     private final SelenideElement
-            buttonEnter = $(".HeaderNavigationBar-controlsContainer .Button.Button--secondary"),
-            buttonPlayFreeNow = $(".HeaderNavigationBar-controlsContainer .Button.Button--primary");
+            buttonEnter = $$(".un_logined").get(0),
+            buttonRegister = $$(".un_logined").get(1);
 
     @Step("Open Authorization Form")
     public MainPage openAuthorizationForm() {
@@ -22,7 +21,7 @@ public class MainPage {
     @Step("Open Registration Form")
     public MainPage openRegistrationForm() {
         open("/ru/games/neverwinter");
-        buttonPlayFreeNow.click();
+        buttonRegister.click();
         return this;
     }
 }

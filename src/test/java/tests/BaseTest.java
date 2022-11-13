@@ -17,13 +17,13 @@ public class BaseTest {
     static void openMainPage() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://www.arcgames.com";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
     @BeforeEach
     void generationDate() {
         email = faker.internet().emailAddress();
-        nickname = faker.funnyName().name();
+        nickname = faker.name().firstName();
         password = faker.internet().password(8, 25);
     }
 
