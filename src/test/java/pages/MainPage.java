@@ -15,13 +15,13 @@ public class MainPage {
 
     @Step("Open Authorization Form")
     public MainPage openAuthorizationForm() {
-        open("/ru");
+        open("/ru/games/neverwinter");
         buttonEnter.click();
         return this;
     }
     @Step("Open Registration Form")
     public MainPage openRegistrationForm() {
-        open("/ru");
+        open("/ru/games/neverwinter");
         buttonPlayFreeNow.click();
         return this;
     }
