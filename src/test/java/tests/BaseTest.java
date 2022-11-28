@@ -12,19 +12,23 @@ public class BaseTest {
     Faker faker = new Faker();
 
     String email, nickname, password;
+    int birthDay, birthMonth, birthYear;
 
     @BeforeAll
     static void openMainPage() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://www.arcgames.com";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
     @BeforeEach
     void generationDate() {
         email = faker.internet().emailAddress();
         nickname = faker.name().firstName();
-        password = faker.internet().password(8, 25);
+        password = "N" + faker.internet().password(8, 13);
+        birthDay = faker.number().numberBetween(1,28);
+        birthMonth = faker.number().numberBetween(1,12);
+        birthYear = faker.number().numberBetween(2004,2022);
     }
 
     @AfterEach

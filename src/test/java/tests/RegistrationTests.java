@@ -17,9 +17,9 @@ public class RegistrationTests extends BaseTest {
     @DisplayName("Success registration from PС")
     void successRegistrationPC() {
         mainPage.openRegistrationForm();
-        registrationPage.registrationPC(email, nickname, password);
-        sleep(5000);
+        registrationPage.registrationPC(email, nickname, password, birthDay, birthMonth, birthYear);
 
+        sleep(5000);
 //        $(".alert.alert-danger").shouldBe(text("THE G-RECAPTCHA-RESPONSE FIELD IS REQUIRED."));
     }
 }

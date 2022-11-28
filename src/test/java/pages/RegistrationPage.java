@@ -16,11 +16,13 @@ public class RegistrationPage {
             fieldPasswordRepeat = $("#confirm-body"),
             selectBirthDay = $(".birth-day-register"),
             selectBirthMonth = $(".birth-month-register"),
-            selectBirthYear = $("..birth-year-register"),
-            checkBoxAgree = $("#tos-body");
+            selectBirthYear = $(".birth-year-register"),
+            checkBoxAgree = $("#tos-body"),
+            checkBoxFacebook = $("#facebook-advertising"),
+            checkBoxMail = $("#mail-body");
 
     @Step("Registration PC")
-    public RegistrationPage registrationPC(String email, String nickname, String password) {
+    public RegistrationPage registrationPC(String email, String nickname, String password, int birthDay, int birthMonth, int birthYear) {
         fieldEmail.setValue(email);
         fieldNickname.setValue(nickname);
         sleep(1000);
@@ -28,9 +30,13 @@ public class RegistrationPage {
 
         fieldPassword.setValue(password);
         fieldPasswordRepeat.setValue(password);
-        selectBirthDay.selectOption(2);
-        selectBirthMonth.selectOption(2);
-        selectBirthYear.selectOption(2);
+        selectBirthDay.selectOption(birthDay);
+        selectBirthMonth.selectOption(birthMonth);
+//        selectBirthYear.selectOption(birthYear);
+        selectBirthYear.click();
+        checkBoxAgree.click();
+        checkBoxFacebook.click();
+        checkBoxMail.click();
         return this;
     }
 }
