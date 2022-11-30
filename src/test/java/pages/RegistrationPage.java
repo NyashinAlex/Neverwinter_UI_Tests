@@ -19,7 +19,8 @@ public class RegistrationPage {
             selectBirthYear = $(".birth-year-register"),
             checkBoxAgree = $("#tos-body"),
             checkBoxFacebook = $("#facebook-advertising"),
-            checkBoxMail = $("#mail-body");
+            checkBoxMail = $("#mail-body"),
+            buttonRegister = $(".btn-main-full");
 
     @Step("Registration PC")
     public RegistrationPage registrationPC(String email, String nickname, String password, int birthDay, int birthMonth, int birthYear) {
@@ -32,11 +33,13 @@ public class RegistrationPage {
         fieldPasswordRepeat.setValue(password);
         selectBirthDay.selectOption(birthDay);
         selectBirthMonth.selectOption(birthMonth);
-//        selectBirthYear.selectOption(birthYear);
+        selectBirthYear.click();
+        $("[value = '" + birthYear + "']").click();
         selectBirthYear.click();
         checkBoxAgree.click();
         checkBoxFacebook.click();
         checkBoxMail.click();
+        buttonRegister.click();
         return this;
     }
 }

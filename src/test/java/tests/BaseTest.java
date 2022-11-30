@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.github.javafaker.Faker;
 import helper.Attach;
 import org.junit.jupiter.api.AfterEach;
@@ -18,7 +19,7 @@ public class BaseTest {
     static void openMainPage() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://www.arcgames.com";
-//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
     @BeforeEach
@@ -37,5 +38,6 @@ public class BaseTest {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+        Selenide.closeWebDriver();
     }
 }

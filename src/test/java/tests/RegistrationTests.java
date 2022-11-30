@@ -19,7 +19,6 @@ public class RegistrationTests extends BaseTest {
         mainPage.openRegistrationForm();
         registrationPage.registrationPC(email, nickname, password, birthDay, birthMonth, birthYear);
 
-        sleep(5000);
-//        $(".alert.alert-danger").shouldBe(text("THE G-RECAPTCHA-RESPONSE FIELD IS REQUIRED."));
+        $(".alert.alert-danger").shouldBe(text("THE G-RECAPTCHA-RESPONSE FIELD IS REQUIRED."));
     }
 }
