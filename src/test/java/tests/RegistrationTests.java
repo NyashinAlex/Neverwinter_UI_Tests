@@ -17,8 +17,26 @@ public class RegistrationTests extends BaseTest {
     @DisplayName("Success registration from PС")
     void successRegistrationPC() {
         mainPage.openRegistrationForm();
-        registrationPage.registrationPC(email, nickname, password, birthDay, birthMonth, birthYear);
+        registrationPage.registrationPC(email, nickname, password, password, birthDay, birthMonth, birthYear);
 
-        $(".alert.alert-danger").shouldBe(text("THE G-RECAPTCHA-RESPONSE FIELD IS REQUIRED."));
+        $("#notification-list").shouldBe(text("Поздравляем! Ваша учетная запись была успешно создана."));
+    }
+
+    @Test
+    @DisplayName("Unsuccessful registration from PС - user under 13")
+    void unsuccessfulRegistrationPCUserUnder13() {
+        mainPage.openRegistrationForm();
+        registrationPage.registrationPC(email, nickname, password, password, birthDay, birthMonth, birthYearUnder13);
+
+        $(".status-container.error-message.error").shouldBe(text("Услуги не предоставляются лицам моложе 13."));
+    }
+
+    @Test
+    @DisplayName("Unsuccessful registration from PС - different password")
+    void unsuccessfulRegistrationPCDifferentPassword() {
+        mainPage.openRegistrationForm();
+        registrationPage.registrationPC(email, nickname, password, passwordDifferent, birthDay, birthMonth, birthYear);
+
+        $(".status-container.error-message.error").shouldBe(text("Введенный пароль не соответствует паролю, введенному выше. Вырезание, копирование и вставка введенного выше пароля приведет к ошибке."));
     }
 }

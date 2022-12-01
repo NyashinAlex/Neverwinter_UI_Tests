@@ -23,14 +23,14 @@ public class RegistrationPage {
             buttonRegister = $(".btn-main-full");
 
     @Step("Registration PC")
-    public RegistrationPage registrationPC(String email, String nickname, String password, int birthDay, int birthMonth, int birthYear) {
+    public RegistrationPage registrationPC(String email, String nickname, String password, String passwordRepeat, int birthDay, int birthMonth, int birthYear) {
         fieldEmail.setValue(email);
         fieldNickname.setValue(nickname);
         sleep(1000);
         buttonForward.click();
 
         fieldPassword.setValue(password);
-        fieldPasswordRepeat.setValue(password);
+        fieldPasswordRepeat.setValue(passwordRepeat);
         selectBirthDay.selectOption(birthDay);
         selectBirthMonth.selectOption(birthMonth);
         selectBirthYear.click();

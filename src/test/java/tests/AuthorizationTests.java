@@ -22,4 +22,24 @@ public class AuthorizationTests extends BaseTest{
 
         $(".status-container.error-message.error").should(text("Неверное имя пользователя или пароль. Попробуйте еще раз."));
     }
+
+    @Test
+    @DisplayName("Unsuccessful authorization - null password")
+    void unsuccessfulAuthorizationNullPassword() {
+        mainPage.openAuthorizationForm();
+        authorizationPage.formFillingWithEmailAndPassword(email, "")
+                .authorizationClickEnter();
+
+        $(".status-container.error-message.error").should(text("Введите все запрашиваемые данные."));
+    }
+
+    @Test
+    @DisplayName("Unsuccessful authorization - null email")
+    void unsuccessfulAuthorizationNullPEmail() {
+        mainPage.openAuthorizationForm();
+        authorizationPage.formFillingWithEmailAndPassword("", password)
+                .authorizationClickEnter();
+
+        $(".status-container.error-message.error").should(text("Введите все запрашиваемые данные."));
+    }
 }

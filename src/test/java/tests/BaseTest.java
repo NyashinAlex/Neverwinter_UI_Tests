@@ -12,8 +12,8 @@ public class BaseTest {
 
     Faker faker = new Faker();
 
-    String email, nickname, password;
-    int birthDay, birthMonth, birthYear;
+    String email, nickname, password, passwordDifferent;
+    int birthDay, birthMonth, birthYear, birthYearUnder13;
 
     @BeforeAll
     static void openMainPage() {
@@ -27,9 +27,11 @@ public class BaseTest {
         email = faker.internet().emailAddress();
         nickname = faker.name().firstName();
         password = "N" + faker.internet().password(8, 13);
+        passwordDifferent = "N" + faker.internet().password(8, 13);
         birthDay = faker.number().numberBetween(1,28);
         birthMonth = faker.number().numberBetween(1,12);
-        birthYear = faker.number().numberBetween(2004,2022);
+        birthYear = faker.number().numberBetween(1990,2009);
+        birthYearUnder13= faker.number().numberBetween(2010,2022);
     }
 
     @AfterEach
@@ -37,7 +39,6 @@ public class BaseTest {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
         Selenide.closeWebDriver();
     }
 }
