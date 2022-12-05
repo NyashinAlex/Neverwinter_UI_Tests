@@ -21,5 +21,6 @@ public interface WebDriverConfig extends Config {
     String getBrowserVersion();
 
     @Key("remoteWebDriver")
+    @DefaultValue("http://localhost:4444")
     String getRemoteWebDriver();
 }
