@@ -9,7 +9,7 @@ import org.aeonbits.owner.Config;
 public interface WebDriverConfig extends Config {
 
     @Key("baseUrl")
-    @DefaultValue("https://www.arcgames.com/")
+    @DefaultValue("https://www.arcgames.com")
     String getBaseUrl();
 
     @Key("browser")
@@ -20,7 +20,10 @@ public interface WebDriverConfig extends Config {
     @DefaultValue("100.0")
     String getBrowserVersion();
 
+    @Key("browserSize")
+    @DefaultValue("1920x1080")
+    String getBrowserSize();
+
     @Key("remoteWebDriver")
-    @DefaultValue("http://localhost:4444")
     String getRemoteWebDriver();
 }

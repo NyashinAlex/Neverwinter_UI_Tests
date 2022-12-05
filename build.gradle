@@ -8,9 +8,8 @@ repositories {
 }
 
 def allureVersion = "2.17.3",
-        selenideVersion = "6.5.0",
-        junitVersion = "5.8.2",
-        seleniumhqSelenium = "4.6.0"
+        selenideVersion = "6.9.0",
+        junitVersion = "5.8.2"
 
 
 allure {
@@ -37,7 +36,7 @@ dependencies {
             "org.slf4j:slf4j-simple:2.0.3",
             'com.github.javafaker:javafaker:1.0.2',
             "org.junit.jupiter:junit-jupiter:$junitVersion",
-            "org.seleniumhq.selenium:selenium-java:$seleniumhqSelenium",
+            "org.seleniumhq.selenium:selenium-java:4.6.0",
             'io.github.bonigarcia:webdrivermanager:5.3.1')
 }
 
