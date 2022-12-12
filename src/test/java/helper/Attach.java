@@ -30,10 +30,7 @@ public class Attach {
     }
 
     public static void browserConsoleLogs() {
-        attachAsText(
-                "Browser console logs",
-                String.join("\n", Selenide.getWebDriverLogs(BROWSER))
-        );
+        attachAsText("Browser console logs", String.join("\n", Selenide.getWebDriverLogs(BROWSER)));
     }
 
     public static URL getVideoUrl() {
@@ -45,6 +42,11 @@ public class Attach {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
+    public static String addVideo() {
+        return "<html><body><video width='100%' height='100%' controls autoplay><source src='" + getVideoUrl() + "' type='video/mp4'></video></body></html>";
     }
 
     public static String getSessionId() {
